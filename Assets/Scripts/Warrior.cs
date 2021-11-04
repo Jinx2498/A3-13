@@ -76,8 +76,8 @@ public class Warrior : MonoBehaviour
 
         if(sceneName == "Level3") {
             totalBossDamage = warrior.TotalWarriorDamageTaken() + moonkinDruid.TotalDruidDamageTaken() + priest.TotalPriestDamageTaken() + rogue.TotalRogueDamageTaken() + mage.TotalMageDamageTaken();
-            totalBossDamage *= 0.01;
-            int round = (int)Math.Round(precise, 0);
+            totalBossDamage *= 0.01f;
+            int round = (int)Math.Round(totalBossDamage, 0);
             warrior.TakeDamage(round);
         }
     }
