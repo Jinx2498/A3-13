@@ -42,6 +42,8 @@ public class Heal : MonoBehaviour
     {
         smallHeal();
         BigHeal();
+        regenMana();
+       
     }
 
     public void smallHeal()
@@ -81,6 +83,11 @@ public class Heal : MonoBehaviour
     {
         priestHealth.playerMana -= 10;
         barbarianHealth.playerHealth += 25;
+        System.Threading.Thread.Sleep(1000);
+    }
+
+    void regenMana(){
+        priestHealth.playerMana += 3;
         System.Threading.Thread.Sleep(1000);
     }
 }
