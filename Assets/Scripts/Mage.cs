@@ -11,6 +11,7 @@ public class Mage : MonoBehaviour
     public int totalDamage;
     private readonly System.Random random = new System.Random();
     public Boss boss; 
+    private Mage mage;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +56,7 @@ public class Mage : MonoBehaviour
         if (currentHealth <= 0) {
             // dead
         } else {
-            Mage.DealDamage();
+            mage.DealDamage();
         }
     }
 }

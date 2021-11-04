@@ -15,6 +15,10 @@ public class Warrior : MonoBehaviour
     public string sceneName;
     private readonly System.Random random = new System.Random(); 
     public Boss boss;
+    public Mage mage;
+    public MoonkinDruid moonkinDruid;
+    public Rogue rogue;
+    private Priest priest;
     private Warrior warrior;
 
     // Start is called before the first frame update
