@@ -6,38 +6,20 @@ public class Priest : MonoBehaviour
 {
     public int maxHealth = 900;
     public int maxMama = 1000;
-    public int currrentHealth;
-    public int currretMana;
-    // PlayerHealth priestHealth;
-
-    // PlayerHealth mageHealth;
-    // PlayerHealth rogueHealth;
-    // PlayerHealth barbarianHealth;
-    // PlayerHealth moonkinDruidHealth;
+    public int currentHealth;
+    public int currentMana;
 
     // Start is called before the first frame update
     void Start()
     {
-        currrentHealth = maxHealth;
-        currretMana = maxMama;
-
-        // ameObject PT_Medieval_Priest_StPatrick = GameObject.Find("PT_Medieval_Priest_StPatrick");
-        // priestHealth = PT_Medieval_Priest_StPatrick.GetComponent<PlayerHealth>();
-
-        // GameObject Barbarian = GameObject.Find("Barbarian");
-        // barbarianHealth = Barbarian.GetComponent<PlayerHealth>();
-        // GameObject magi_earthen_v1 = GameObject.Find("magi_earthen_v1");
-        // mageHealth = magi_earthen_v1.GetComponent<PlayerHealth>();
-        // GameObject Basic_Bandit = GameObject.Find("Basic_Bandit");
-        // rogueHealth = Basic_Bandit.GetComponent<PlayerHealth>();
-        // GameObject HuaYao_01 = GameObject.Find("HuaYao_01");
-        // moonkinDruidHealth = HuaYao_01.GetComponent<PlayerHealth>();
+        currentHealth = maxHealth;
+        currentMana = maxMama;
     }
 
     public void TakeDamage(int amount) {
-        currrentHealth =- amount;
+        currentHealth =- amount;
 
-        if (currrentHealth <= 0) {
+        if (currentHealth <= 0) {
             //Dead
             //Go back to main menu or scorres
         }
@@ -84,7 +66,7 @@ public class Priest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currrentHealth <= 0) {
+        if (currentHealth <= 0) {
             // dead
         } else {
             SmallHeal();
