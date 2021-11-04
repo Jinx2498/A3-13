@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Rogue : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Rogue : MonoBehaviour
     public int currrentHealth;
     public static int damage;
     public int totalDamage;
-    private readonly Random random = new Random(); 
+    private readonly System.Random random = new System.Random(); 
 
     // Start is called before the first frame update
     void Start()

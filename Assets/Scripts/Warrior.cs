@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Warrior : MonoBehaviour
 {
     public int maxHealth = 3000;
@@ -9,7 +9,7 @@ public class Warrior : MonoBehaviour
     public static int damage;
     public int totalDamage;
     public float totalBossDamage;
-    private readonly Random random = new Random(); 
+    private readonly System.Random random = new System.Random(); 
 
     // Start is called before the first frame update
     void Start()

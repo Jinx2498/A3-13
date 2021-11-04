@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Boss : MonoBehaviour
 {
     public int maxHealth = 5000;
     public int currrentHealth;
     public static int damage;
     public int totalDamage;
-    private readonly Random random = new Random(); 
+    private readonly System.Random random = new System.Random(); 
 
 
     // Start is called before the first frame update
