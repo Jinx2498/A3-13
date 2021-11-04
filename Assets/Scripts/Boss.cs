@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int bossHealth = 0;
-    public int bossDamage;
+    public int maxHealth = 5000;
+    public int currrentHealth;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        currrentHealth = maxHealth;
+    }
+
+    void TakeDamage(int amount) {
+        currrentHealth =- amount;
+
+        if (currrentHealth <= 0) {
+            //Dead
+            //Go back to main menu or scorres
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(bossHealth <= 0) {
-            Destroy(gameObject);
-            GameOver.gameOver();
-        }
+        
     }
 }
