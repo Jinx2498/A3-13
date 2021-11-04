@@ -61,18 +61,18 @@ public class Priest : MonoBehaviour
             priest.AddHealth(15);
         }
 
-        currretMana -= 5;
+        currentMana -= 5;
 
     }
 
     public void BigHeal() {
 
-        currretMana -= 10;
+        currentMana -= 10;
         warrior.AddHealth(25);
         
     }
     public void AddHealth(int heal) {
-        currrentHealth += heal;
+        currentHealth += heal;
     }
 
     // Update is called once per frame
