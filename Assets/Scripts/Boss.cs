@@ -6,8 +6,9 @@ public class Boss : MonoBehaviour
 {
     public int maxHealth = 5000;
     public int currrentHealth;
-    public int damage;
+    public static int damage;
     public int totalDamage;
+    private readonly Random random = new Random(); 
 
 
     // Start is called before the first frame update
@@ -16,7 +17,7 @@ public class Boss : MonoBehaviour
         currrentHealth = maxHealth;
     }
 
-    void TakeDamage(int amount) {
+    public void TakeDamage(int amount) {
         currrentHealth =- amount;
 
         if (currrentHealth <= 0) {
@@ -25,42 +26,40 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void DealDamage() {
-        if(other.gameObject.tag == "Rogue" || other.gameObject.tag == "Mage" || other.gameObject.tag == "Moonkin Druid" || other.gameObject.tag == "Priest") {
-            Random rand = new Random();
+    public void DealDamage() {
+        if(gameObject.tag == "Rogue" || gameObject.tag == "Mage" || gameObject.tag == "Moonkin Druid" || gameObject.tag == "Priest") {
 
-            damage = rand.Next(5, 21);
+            damage = random.Next(5, 21);
             Rogue.TakeDamage(damage);
             totalDamage += damage;
 
-            damage = rand.Next(5, 21);
+            damage = random.Next(5, 21);
             Mage.TakeDamage(damage);
             totalDamage += damage;
 
-            damage = rand.Next(5, 21);
+            damage = random.Next(5, 21);
             MoonkinDruid.TakeDamage(damage);
             totalDamage += damage;
 
-            damage = rand.Next(5, 21);
+            damage = random.Next(5, 21);
             Priest.TakeDamage(damage);
             totalDamage += damage;
 
         }
 
-        if(other.gameObject.tag == "Warrior") {
-            Random rand = new Random();
+        if(gameObject.tag == "Warrior") {
 
-            damage = rand.Next(40, 51);
+            damage = random.Next(40, 51);
             Warrior.TakeDamage(damage);
             totalDamage += damage;
         }
     }
 
-    void TotalBossDamageDealt() {
+    public int TotalBossDamageDealt() {
         return totalDamage;
     }
 
-    void TotalBossDamageTaken() {
+    public int TotalBossDamageTaken() {
         return currentHealth;
     }
 

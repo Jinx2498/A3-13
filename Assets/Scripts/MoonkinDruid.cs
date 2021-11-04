@@ -6,8 +6,9 @@ public class MoonkinDruid : MonoBehaviour
 {
     public int maxHealth = 1250;
     public int currrentHealth;
-    public int damage;
+    public static int damage;
     public int totalDamage;
+    private readonly Random random = new Random(); 
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class MoonkinDruid : MonoBehaviour
         currrentHealth = maxHealth;
     }
 
-    void TakeDamage(int amount) {
+    public void TakeDamage(int amount) {
         currrentHealth =- amount;
 
         if (currrentHealth <= 0) {
@@ -24,21 +25,20 @@ public class MoonkinDruid : MonoBehaviour
         }
     }
 
-    void DealDamage() {
-        if(other.gameObject.tag == "Boss") {
-            Random rand = new Random();
+    public void DealDamage() {
+        if(gameObject.tag == "Boss") {
 
-            damage = rand.Next(5, 16);
+            damage = random.Next(5, 16);
             Boss.TakeDamage(damage);
             totalDamage += damage;
         }
     }
 
-    void TotalDruidDamageDealt() {
+    public int TotalDruidDamageDealt() {
         return totalDamage;
     }
 
-    void TotalDruidDamageTaken() {
+    public int TotalDruidDamageTaken() {
         return currentHealth;
     }
 

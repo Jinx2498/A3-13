@@ -6,6 +6,9 @@ public class Mage : MonoBehaviour
 {
     public int maxHealth = 1000;
     public int currrentHealth;
+    public static int damage;
+    public int totalDamage;
+    private readonly Random random = new Random(); 
 
     // Start is called before the first frame update
     void Start()
@@ -13,7 +16,7 @@ public class Mage : MonoBehaviour
         currrentHealth = maxHealth;
     }
 
-    void TakeDamage(int amount) {
+    public void TakeDamage(int amount) {
         currrentHealth =- amount;
 
         if (currrentHealth <= 0) {
@@ -23,21 +26,20 @@ public class Mage : MonoBehaviour
     }
 
     // Update is called once per frame
-    void DealDamage() {
-        if(other.gameObject.tag == "Boss") {
-            Random rand = new Random();
+    public void DealDamage() {
+        if(gameObject.tag == "Boss") {
 
-            damage = rand.Next(5, 31);
+            damage = random.Next(5, 31);
             Boss.TakeDamage(damage);
             totalDamage += damage;
         }
     }
 
-    void TotalMageDamageDealt() {
+    public int TotalMageDamageDealt() {
         return totalDamage;
     }
 
-    void TotalMageDamageTaken() {
+    public int TotalMageDamageTaken() {
         return currentHealth;
     }
 

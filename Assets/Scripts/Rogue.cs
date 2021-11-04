@@ -6,6 +6,9 @@ public class Rogue : MonoBehaviour
 {
     public int maxHealth = 1500;
     public int currrentHealth;
+    public static int damage;
+    public int totalDamage;
+    private readonly Random random = new Random(); 
 
     // Start is called before the first frame update
     void Start()
@@ -13,7 +16,7 @@ public class Rogue : MonoBehaviour
         currrentHealth = maxHealth;
     }
 
-    void TakeDamage(int amount) {
+    public void TakeDamage(int amount) {
         currrentHealth =- amount;
 
         if (currrentHealth <= 0) {
@@ -22,21 +25,20 @@ public class Rogue : MonoBehaviour
         }
     }
 
-    void DealDamage() {
-        if(other.gameObject.tag == "Boss") {
-            Random rand = new Random();
+    public void DealDamage() {
+        if(gameObject.tag == "Boss") {
 
-            damage = rand.Next(15, 26);
+            damage = random.Next(15, 26);
             Boss.TakeDamage(damage);
             totalDamage += damage;
         }
     }
 
-    void TotalRogueDamageDealt() {
+    public int TotalRogueDamageDealt() {
         return totalDamage;
     }
 
-    void TotalRogueDamageTaken() {
+    public int TotalRogueDamageTaken() {
         return currentHealth;
     }
 

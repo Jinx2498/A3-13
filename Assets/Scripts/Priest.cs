@@ -16,7 +16,7 @@ public class Priest : MonoBehaviour
         currretMana = maxMama;
     }
 
-    void TakeDamage(int amount) {
+    public void TakeDamage(int amount) {
         currrentHealth =- amount;
 
         if (currrentHealth <= 0) {

@@ -6,6 +6,9 @@ public class Warrior : MonoBehaviour
 {
     public int maxHealth = 3000;
     public int currrentHealth;
+    public static int damage;
+    public int totalDamage;
+    private readonly Random random = new Random(); 
 
     // Start is called before the first frame update
     void Start()
@@ -13,7 +16,7 @@ public class Warrior : MonoBehaviour
         currrentHealth = maxHealth;
     }
 
-    void TakeDamage(int amount) {
+    public void TakeDamage(int amount) {
         currrentHealth =- amount;
 
         if (currrentHealth <= 0) {
@@ -22,21 +25,20 @@ public class Warrior : MonoBehaviour
         }
     }
 
-    void DealDamage() {
-        if(other.gameObject.tag == "Boss") {
-            Random rand = new Random();
+    public void DealDamage() {
+        if(gameObject.tag == "Boss") {
 
-            damage = rand.Next(40, 51);
+            damage = random.Next(40, 51);
             Boss.TakeDamage(damage);
             totalDamage += damage;
         }
     }
 
-    void TotalWarriorDamageDealt() {
+    public int TotalWarriorDamageDealt() {
         return totalDamage;
     }
 
-    void TotalWarriorDamageTaken() {
+    public int TotalWarriorDamageTaken() {
         return currentHealth;
     }
 
