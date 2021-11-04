@@ -5,7 +5,7 @@ using System;
 public class Warrior : MonoBehaviour
 {
     public int maxHealth = 3000;
-    public int currrentHealth;
+    public int currentHealth;
     public static int damage;
     public int totalDamage;
     public float totalBossDamage;
@@ -14,13 +14,13 @@ public class Warrior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currrentHealth = maxHealth;
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(int amount) {
-        currrentHealth =- amount;
+        currentHealth =- amount;
 
-        if (currrentHealth <= 0) {
+        if (currentHealth <= 0) {
             //Dead
             //Go back to main menu or scorres
         }
@@ -48,7 +48,7 @@ public class Warrior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currrentHealth <= 0) {
+        if (currentHealth <= 0) {
             // dead
         } else {
             Warrior.DealDamage();

@@ -6,20 +6,20 @@ public class Priest : MonoBehaviour
 {
     public int maxHealth = 900;
     public int maxMama = 1000;
-    public int currrentHealth;
-    public int currretMana;
+    public int currentHealth;
+    public int currentMana;
 
     // Start is called before the first frame update
     void Start()
     {
-        currrentHealth = maxHealth;
-        currretMana = maxMama;
+        currentHealth = maxHealth;
+        currentMana = maxMama;
     }
 
     public void TakeDamage(int amount) {
-        currrentHealth =- amount;
+        currentHealth =- amount;
 
-        if (currrentHealth <= 0) {
+        if (currentHealth <= 0) {
             //Dead
             //Go back to main menu or scorres
         }
@@ -36,7 +36,7 @@ public class Priest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currrentHealth <= 0) {
+        if (currentHealth <= 0) {
             // dead
         } else {
             // Heal
