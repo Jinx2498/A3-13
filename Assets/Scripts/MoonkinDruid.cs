@@ -11,6 +11,7 @@ public class MoonkinDruid : MonoBehaviour
     public int totalDamage;
     private readonly System.Random random = new System.Random(); 
     public Boss boss;
+    Private MoonkinDruid moonkinDruid;
     // Start is called before the first frame update
     void Start()
     {

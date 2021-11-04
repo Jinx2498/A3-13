@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour
     public static int damage;
     public int totalDamage;
     private readonly System.Random random = new System.Random(); 
+    private Boss boss;
     public Mage mage;
     public MoonkinDruid moonkinDruid;
     public Rogue rogue;
@@ -73,7 +74,7 @@ public class Boss : MonoBehaviour
         if (currentHealth <= 0) {
             // Dead
         } else {
-            Boss.DealDamage();
+            boss.DealDamage();
         }
     }
 }

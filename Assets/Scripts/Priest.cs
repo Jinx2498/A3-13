@@ -11,6 +11,12 @@ public class Priest : MonoBehaviour
     public int currentMana;
     public Scene scene;
     public string sceneName;
+    private readonly System.Random random = new System.Random(); 
+    public Mage mage;
+    public MoonkinDruid moonkinDruid;
+    public Rogue rogue;
+    private Priest priest;
+    public Warrior warrior;
 
     // Start is called before the first frame update
     void Start()
@@ -37,22 +43,22 @@ public class Priest : MonoBehaviour
 
         if (rand == 1)
         {
-            Rogue.AddHealth(15);
+            rogue.AddHealth(15);
 
         }
         else if (rand == 2) 
         { 
         
-            Mage.AddHealth(15);
+            mage.AddHealth(15);
 
         }
         else if (rand == 3)
         {
-            MoonkinDruid.AddHealth(15);
+            moonkinDruid.AddHealth(15);
         }
         else 
         {
-            Priest.AddHealth(15);
+            priest.AddHealth(15);
         }
 
         currretMana -= 5;
@@ -62,7 +68,7 @@ public class Priest : MonoBehaviour
     public void BigHeal() {
 
         currretMana -= 10;
-        barbarianHealth.playerHealth += 25;
+        warrior.AddHealth(25);
         
     }
     public void AddHealth(int heal) {
@@ -79,7 +85,7 @@ public class Priest : MonoBehaviour
             BigHeal();
 
             if(sceneName == "Level2") {
-                if(Warrior.GetHealth() <= 1500) {
+                if(warrior.GetHealth() <= 1500) {
                     int rand = Random.Range(1,3);
                     if(rand == 1) {
                         SmallHeal();
