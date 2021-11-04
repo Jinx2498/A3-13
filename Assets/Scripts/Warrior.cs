@@ -62,7 +62,7 @@ public class Warrior : MonoBehaviour
     }
 
     public void AddHealth(int heal) {
-        currrentHealth += heal;
+        currentHealth += heal;
     }
 
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class Warrior : MonoBehaviour
             warrior.DealDamage();
         }
 
-        if(GetActiveScene == "Level3") {
+        if(sceneName == "Level3") {
             totalBossDamage = warrior.TotalWarriorDamageTaken() + moonkinDruid.TotalDruidDamageTaken() + priest.TotalPriestDamageTaken() + rogue.TotalRogueDamageTaken() + mage.TotalMageDamageTaken();
             totalBossDamage *= 0.01;
             int round = (int)Math.Round(precise, 0);
