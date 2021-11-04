@@ -45,6 +45,14 @@ public class Warrior : MonoBehaviour
         return currentHealth;
     }
 
+    public int GetHealth() {
+        return currentHealth;
+    }
+
+    public void AddHealth(int heal) {
+        currrentHealth += heal;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -52,13 +60,14 @@ public class Warrior : MonoBehaviour
             // dead
         } else {
             Warrior.DealDamage();
+            if(GetActiveScene == "Level3") {
+                totalBossDamage = Warrior.TotalWarriorDamageTaken() + MoonkinDruid.TotalDruidDamageTaken() + Priest.TotalPriestDamageTaken() + Rogue.TotalRogueDamageTaken() + Mage.TotalMageDamageTaken();
+                totalBossDamage *= 0.01;
+                int round = (int)Math.Round(precise, 0);
+                Warrior.TakeDamage(round);
+            }
         }
 
-        if(GetActiveScene == "Level3") {
-            totalBossDamage = Warrior.TotalWarriorDamageTaken() + MoonkinDruid.TotalDruidDamageTaken() + Priest.TotalPriestDamageTaken() + Rogue.TotalRogueDamageTaken() + Mage.TotalMageDamageTaken();
-            totalBossDamage *= 0.01;
-            int round = (int)Math.Round(precise, 0);
-            Warrior.TakeDamage(round);
-        }
+    
     }
 }
