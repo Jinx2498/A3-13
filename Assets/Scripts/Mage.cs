@@ -9,7 +9,8 @@ public class Mage : MonoBehaviour
     public int currentHealth;
     public static int damage;
     public int totalDamage;
-    private readonly System.Random random = new System.Random(); 
+    private readonly System.Random random = new System.Random();
+    public Boss boss; 
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class Mage : MonoBehaviour
         if(gameObject.tag == "Boss") {
 
             damage = random.Next(5, 31);
-            Boss.TakeDamage(damage);
+            boss.TakeDamage(damage);
             totalDamage += damage;
         }
     }
