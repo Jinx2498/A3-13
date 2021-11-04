@@ -43,6 +43,10 @@ public class MoonkinDruid : MonoBehaviour
         return currentHealth;
     }
 
+    public void AddHealth(int heal) {
+        currrentHealth += heal;
+    }
+
     // Update is called once per frame
     void Update()
     {

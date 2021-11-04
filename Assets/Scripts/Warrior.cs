@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+
 public class Warrior : MonoBehaviour
 {
     public int maxHealth = 3000;
@@ -9,6 +11,8 @@ public class Warrior : MonoBehaviour
     public static int damage;
     public int totalDamage;
     public float totalBossDamage;
+    public Scene scene;
+    public string sceneName;
     private readonly System.Random random = new System.Random(); 
     public Boss boss;
     private Warrior warrior;
@@ -17,6 +21,8 @@ public class Warrior : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
     }
 
     public void TakeDamage(int amount) {
@@ -45,6 +51,14 @@ public class Warrior : MonoBehaviour
 
     public int TotalWarriorDamageTaken() {
         return currentHealth;
+    }
+
+    public int GetHealth() {
+        return currentHealth;
+    }
+
+    public void AddHealth(int heal) {
+        currrentHealth += heal;
     }
 
     // Update is called once per frame
