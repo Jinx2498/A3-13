@@ -10,6 +10,8 @@ public class Rogue : MonoBehaviour
     public static int damage;
     public int totalDamage;
     private readonly System.Random random = new System.Random(); 
+    public Boss boss;
+    public Rogue rogue;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,7 @@ public class Rogue : MonoBehaviour
         if(gameObject.tag == "Boss") {
 
             damage = random.Next(15, 26);
-            Boss.TakeDamage(damage);
+            boss.TakeDamage(damage);
             totalDamage += damage;
         }
     }
@@ -49,7 +51,7 @@ public class Rogue : MonoBehaviour
         if (currentHealth <= 0) {
             // dead
         } else {
-            Rogue.DealDamage();
+            rogue.DealDamage();
         }
     }
 }

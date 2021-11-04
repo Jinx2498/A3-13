@@ -10,7 +10,7 @@ public class MoonkinDruid : MonoBehaviour
     public static int damage;
     public int totalDamage;
     private readonly System.Random random = new System.Random(); 
-
+    public Boss boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class MoonkinDruid : MonoBehaviour
         if(gameObject.tag == "Boss") {
 
             damage = random.Next(5, 16);
-            Boss.TakeDamage(damage);
+            boss.TakeDamage(damage);
             totalDamage += damage;
         }
     }
@@ -49,7 +49,7 @@ public class MoonkinDruid : MonoBehaviour
         if (currentHealth <= 0) {
             // dead
         } else {
-            MoonkinDruid.DealDamage();
+            moonkinDruid.DealDamage();
         }
     }
 }
