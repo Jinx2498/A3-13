@@ -22,9 +22,31 @@ public class Rogue : MonoBehaviour
         }
     }
 
+    void DealDamage() {
+        if(other.gameObject.tag == "Boss") {
+            Random rand = new Random();
+
+            damage = rand.Next(15, 26);
+            Boss.TakeDamage(damage);
+            totalDamage += damage;
+        }
+    }
+
+    void TotalRogueDamageDealt() {
+        return totalDamage;
+    }
+
+    void TotalRogueDamageTaken() {
+        return currentHealth;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (currrentHealth <= 0) {
+            // dead
+        } else {
+            Rogue.DealDamage();
+        }
     }
 }

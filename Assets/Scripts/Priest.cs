@@ -25,9 +25,22 @@ public class Priest : MonoBehaviour
         }
     }
 
+    void SmallHeal() {
+
+    }
+
+    void BigHeal() {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (currrentHealth <= 0) {
+            // dead
+        } else {
+            // Heal
+            currentMana += 3;
+        }
     }
 }

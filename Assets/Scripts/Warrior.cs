@@ -22,9 +22,31 @@ public class Warrior : MonoBehaviour
         }
     }
 
+    void DealDamage() {
+        if(other.gameObject.tag == "Boss") {
+            Random rand = new Random();
+
+            damage = rand.Next(40, 51);
+            Boss.TakeDamage(damage);
+            totalDamage += damage;
+        }
+    }
+
+    void TotalWarriorDamageDealt() {
+        return totalDamage;
+    }
+
+    void TotalWarriorDamageTaken() {
+        return currentHealth;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (currrentHealth <= 0) {
+            // dead
+        } else {
+            Warrior.DealDamage();
+        }
     }
 }

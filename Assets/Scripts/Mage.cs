@@ -23,8 +23,31 @@ public class Mage : MonoBehaviour
     }
 
     // Update is called once per frame
+    void DealDamage() {
+        if(other.gameObject.tag == "Boss") {
+            Random rand = new Random();
+
+            damage = rand.Next(5, 31);
+            Boss.TakeDamage(damage);
+            totalDamage += damage;
+        }
+    }
+
+    void TotalMageDamageDealt() {
+        return totalDamage;
+    }
+
+    void TotalMageDamageTaken() {
+        return currentHealth;
+    }
+
+    // Update is called once per frame
     void Update()
     {
-        
+        if (currrentHealth <= 0) {
+            // dead
+        } else {
+            Mage.DealDamage();
+        }
     }
 }
