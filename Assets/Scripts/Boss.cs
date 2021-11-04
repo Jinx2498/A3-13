@@ -10,8 +10,11 @@ public class Boss : MonoBehaviour
     public static int damage;
     public int totalDamage;
     private readonly System.Random random = new System.Random(); 
-
-
+    public Mage mage;
+    public MoonkinDruid moonkinDruid;
+    public Rogue rogue;
+    public Priest priest;
+    public Warrior warrior;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,19 +34,19 @@ public class Boss : MonoBehaviour
         if(gameObject.tag == "Rogue" || gameObject.tag == "Mage" || gameObject.tag == "Moonkin Druid" || gameObject.tag == "Priest") {
 
             damage = random.Next(5, 21);
-            Rogue.TakeDamage(damage);
+            rogue.TakeDamage(damage);
             totalDamage += damage;
 
             damage = random.Next(5, 21);
-            Mage.TakeDamage(damage);
+            mage.TakeDamage(damage);
             totalDamage += damage;
 
             damage = random.Next(5, 21);
-            MoonkinDruid.TakeDamage(damage);
+            moonkinDruid.TakeDamage(damage);
             totalDamage += damage;
 
             damage = random.Next(5, 21);
-            Priest.TakeDamage(damage);
+            priest.TakeDamage(damage);
             totalDamage += damage;
 
         }
@@ -51,7 +54,7 @@ public class Boss : MonoBehaviour
         if(gameObject.tag == "Warrior") {
 
             damage = random.Next(40, 51);
-            Warrior.TakeDamage(damage);
+            warrior.TakeDamage(damage);
             totalDamage += damage;
         }
     }

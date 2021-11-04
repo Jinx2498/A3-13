@@ -14,6 +14,8 @@ public class Warrior : MonoBehaviour
     public Scene scene;
     public string sceneName;
     private readonly System.Random random = new System.Random(); 
+    public Boss boss;
+    private Warrior warrior;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,7 @@ public class Warrior : MonoBehaviour
         if(gameObject.tag == "Boss") {
 
             damage = random.Next(40, 51);
-            Boss.TakeDamage(damage);
+            boss.TakeDamage(damage);
             totalDamage += damage;
         }
     }
@@ -65,15 +67,14 @@ public class Warrior : MonoBehaviour
         if (currentHealth <= 0) {
             // dead
         } else {
-            Warrior.DealDamage();
-            if(sceneName == "Level3") {
-                totalBossDamage = Warrior.TotalWarriorDamageTaken() + MoonkinDruid.TotalDruidDamageTaken() + Priest.TotalPriestDamageTaken() + Rogue.TotalRogueDamageTaken() + Mage.TotalMageDamageTaken();
-                totalBossDamage *= 0.01;
-                int round = (int)Math.Round(precise, 0);
-                Warrior.TakeDamage(round);
-            }
+            warrior.DealDamage();
         }
 
-    
+        if(GetActiveScene == "Level3") {
+            totalBossDamage = warrior.TotalWarriorDamageTaken() + moonkinDruid.TotalDruidDamageTaken() + priest.TotalPriestDamageTaken() + rogue.TotalRogueDamageTaken() + mage.TotalMageDamageTaken();
+            totalBossDamage *= 0.01;
+            int round = (int)Math.Round(precise, 0);
+            warrior.TakeDamage(round);
+        }
     }
 }
