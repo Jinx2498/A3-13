@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+
 public class Warrior : MonoBehaviour
 {
     public int maxHealth = 3000;
@@ -9,12 +11,16 @@ public class Warrior : MonoBehaviour
     public static int damage;
     public int totalDamage;
     public float totalBossDamage;
+    public Scene scene;
+    public string sceneName;
     private readonly System.Random random = new System.Random(); 
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
     }
 
     public void TakeDamage(int amount) {
@@ -60,7 +66,7 @@ public class Warrior : MonoBehaviour
             // dead
         } else {
             Warrior.DealDamage();
-            if(GetActiveScene == "Level3") {
+            if(sceneName == "Level3") {
                 totalBossDamage = Warrior.TotalWarriorDamageTaken() + MoonkinDruid.TotalDruidDamageTaken() + Priest.TotalPriestDamageTaken() + Rogue.TotalRogueDamageTaken() + Mage.TotalMageDamageTaken();
                 totalBossDamage *= 0.01;
                 int round = (int)Math.Round(precise, 0);

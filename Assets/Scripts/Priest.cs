@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Priest : MonoBehaviour
 {
@@ -8,12 +9,17 @@ public class Priest : MonoBehaviour
     public int maxMama = 1000;
     public int currentHealth;
     public int currentMana;
+    public Scene scene;
+    public string sceneName;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         currentMana = maxMama;
+        scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
+
     }
 
     public void TakeDamage(int amount) {
@@ -71,7 +77,8 @@ public class Priest : MonoBehaviour
         } else {
             SmallHeal();
             BigHeal();
-            if(GetActiveScene == "Level2") {
+
+            if(sceneName == "Level2") {
                 if(Warrior.GetHealth() <= 1500) {
                     int rand = Random.Range(1,3);
                     if(rand == 1) {
